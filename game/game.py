@@ -4,15 +4,15 @@ import random
 from pyglet.window import key
 from pyglet.gl import *
 
-
+pyglet.options['search_local_libs'] = True
 pyglet.options['audio'] = ('directsound', 'openal', 'pulse')
 
 player = pyglet.media.Player()
-sound = pyglet.media.load('ver1.mp3')
-player.queue(sound)
+# sound = pyglet.media.load('ver1.mp3')
+# player.queue(sound)
 
 # keep playing for as long as the app is running (or you tell it to stop):
-player.eos_action = pyglet.media.SourceGroup.loop
+# player.eos_action = pyglet.media.SourceGroup.loop
 
 player.play()
 alive = 3
@@ -20,7 +20,7 @@ background = pyglet.image.load('bg.png')
 back = pyglet.sprite.Sprite(background,0,0)
 background1 = pyglet.image.load_animation('lvel2.gif')
 back1 = pyglet.sprite.Sprite(background1,0,0)
-window = pyglet.window.Window(width=600, height=900)
+window = pyglet.window.Window(width=450, height=750)
 bin = pyglet.resource.image('basket.png')
 bin.anchor_x = bin.width // 2
 bin.anchor_y = 0
@@ -111,7 +111,7 @@ def on_draw():
         score_label.text = str(game.score)
         score_label.draw()
     elif game.gameover and start != 0:
-        sound_end()
+        # sound_end()
         window.clear()
         back.draw()
         broken_egg.blit(game.egg_x -10, game.egg_y- 60)
@@ -137,7 +137,7 @@ def egg_drop(dt):
         game.egg_x = random.randint(50, window.width - 50)
         game.egg_y = window.height - 2
         game.score += 1
-        soundPoint()
+        # soundPoint()
     if start > 0 :
         if game.score <= 5:
             game.egg_y -= 6
