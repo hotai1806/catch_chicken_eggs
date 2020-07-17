@@ -20,7 +20,7 @@ background = pyglet.image.load('bg.png')
 back = pyglet.sprite.Sprite(background,0,0)
 background1 = pyglet.image.load_animation('lvel2.gif')
 back1 = pyglet.sprite.Sprite(background1,0,0)
-window = pyglet.window.Window(width=450, height=750)
+window = pyglet.window.Window(width=450, height=750) 
 bin = pyglet.resource.image('basket.png')
 bin.anchor_x = bin.width // 2
 bin.anchor_y = 0
